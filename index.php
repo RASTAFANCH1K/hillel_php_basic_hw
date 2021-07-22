@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hillel homeworks">
-    <title>HW-1</title>
+    <title>HW-2</title>
     <style>
       h6 {
         margin: 0 0 10px 0;
@@ -29,6 +29,7 @@
       }
 
       span {
+        display: block;
         margin-right: 4px;
         color: red;
       }
@@ -37,266 +38,483 @@
   <body>
     <ol>
       <li>
-        <h6>Получить остаток деления 7 на 3:</h6>
+        <h6>$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6]; Посчитать длину массива:</h6>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo getRemainderOfDivision(7, 3);
+              $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+
+              echo getArrLength($arr);
             ?>
           </span>
-          <em>(%)</em>
+          <em>(count())</em>
         </div>
       </li>
       <li>
-        <h6>Получить целую часть сложения 7 и 7,15:</h6>
+        <h6>$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6]; Переместить первые 4 элемента массива в конец массива:</h6>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo getWholePartOfAddition(7, 7.15);
+              $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+
+              echo shiftChosenArrElementsToEnd($arr, 4);
             ?>
           </span>
-          <em>(round)</em>
-        </div>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              echo getWholePartOfAddition2(7, 7.15);
-            ?>
-          </span>
-          <em>(floor)</em>
+          <em>(array_splice() + array_push() + ...)</em>
         </div>
       </li>
       <li>
-        <h6>Получить корень из 25:</h6>
+        <h6>$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6]; Получить сумму 4,5,6 элемента:</h6>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo getSqrtOfNum(25);
+              $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+
+              echo getSumOfChosenArrElementsRange($arr, 3, 3);
             ?>
           </span>
-          <em>(sqrt)</em>
+          <em>(array_slice() + array_sum())</em>
         </div>
       </li>
       <li>
-        <h6>Получить 4-е слово из фразы - Десять негритят пошли купаться в море</h6>
+        <h6>Найти все элементы которые отсутствуют в первом массиве и присутствуют во втором:</h6>
+        <pre>
+          $firstArr = [
+            'one' => 1,
+            'two' => 2,
+            'three' => 3,
+            'foure' => 5,
+            'five' => 12,
+          ];
+
+          $secondArr = [
+            'one' => 1,
+            'seven' => 22,
+            'three' => 32,
+            'foure' => 5,
+            'five' => 13,
+            'six' => 37,
+          ];
+        </pre>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo getSubStrInPhrase(4, 'Десять негритят пошли купаться в море');
+              $firstArr = [
+                'one' => 1,
+                'two' => 2,
+                'three' => 3,
+                'foure' => 5,
+                'five' => 12,
+              ];
+      
+              $secondArr = [
+                'one' => 1,
+                'seven' => 22,
+                'three' => 32,
+                'foure' => 5,
+                'five' => 13,
+                'six' => 37,
+              ];
+
+              echo findDiffInArrElements($secondArr, $firstArr);
             ?>
           </span>
-          <em>(explode)</em>
+          <em>(array_diff_key())</em>
         </div>
       </li>
       <li>
-        <h6>Получить 17-й символ из фразы - Десять негритят пошли купаться в море</h6>
+        <h6>Найти все элементы которые присутствую в первом и отсутствуют во втором:</h6>
+        <pre>
+          $firstArr = [
+            'one' => 1,
+            'two' => 2,
+            'three' => 3,
+            'foure' => 5,
+            'five' => 12,
+          ];
+
+          $secondArr = [
+            'one' => 1,
+            'seven' => 22,
+            'three' => 32,
+            'foure' => 5,
+            'five' => 13,
+            'six' => 37,
+          ];
+        </pre>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo getSymbolInStr('Десять негритят пошли купаться в море', 17);
+              $firstArr = [
+                'one' => 1,
+                'two' => 2,
+                'three' => 3,
+                'foure' => 5,
+                'five' => 12,
+              ];
+      
+              $secondArr = [
+                'one' => 1,
+                'seven' => 22,
+                'three' => 32,
+                'foure' => 5,
+                'five' => 13,
+                'six' => 37,
+              ];
+
+              echo findDiffInArrElements($firstArr, $secondArr);
             ?>
           </span>
-          <em>(mb_substr)</em>
+          <em>(array_diff_key())</em>
         </div>
       </li>
       <li>
-        <h6>Сделать заглавной первую букву во всех словах фразы - Десять негритят пошли купаться в море</h6>
+        <h6>Найти все элементы значения которых совпадают:</h6>
+        <pre>
+          $firstArr = [
+            'one' => 1,
+            'two' => 2,
+            'three' => 3,
+            'foure' => 5,
+            'five' => 12,
+          ];
+
+          $secondArr = [
+            'one' => 1,
+            'seven' => 22,
+            'three' => 32,
+            'foure' => 5,
+            'five' => 13,
+            'six' => 37,
+          ];
+        </pre>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo capitalizeAllSubStr('Десять негритят пошли купаться в море');
+              $firstArr = [
+                'one' => 1,
+                'two' => 2,
+                'three' => 3,
+                'foure' => 5,
+                'five' => 12,
+              ];
+      
+              $secondArr = [
+                'one' => 1,
+                'seven' => 22,
+                'three' => 32,
+                'foure' => 5,
+                'five' => 13,
+                'six' => 37,
+              ];
+
+              echo findDiffInArrElementsByValСoincidence($firstArr, $secondArr);
             ?>
           </span>
-          <em>(mb_convert_case)</em>
+          <em>(array_intersect_assoc())</em>
         </div>
       </li>
       <li>
-        <h6>Посчитать длину строки - Десять негритят пошли купаться в море</h6>
+        <h6>Найти все элементы значения которых отличается:</h6>
+        <pre>
+          $firstArr = [
+            'one' => 1,
+            'two' => 2,
+            'three' => 3,
+            'foure' => 5,
+            'five' => 12,
+          ];
+
+          $secondArr = [
+            'one' => 1,
+            'seven' => 22,
+            'three' => 32,
+            'foure' => 5,
+            'five' => 13,
+            'six' => 37,
+          ];
+        </pre>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo getStrLength('Десять негритят пошли купаться в море');
+              $firstArr = [
+                'one' => 1,
+                'two' => 2,
+                'three' => 3,
+                'foure' => 5,
+                'five' => 12,
+              ];
+      
+              $secondArr = [
+                'one' => 1,
+                'seven' => 22,
+                'three' => 32,
+                'foure' => 5,
+                'five' => 13,
+                'six' => 37,
+              ];
+
+              echo findDiffInArrElementsByValAbsence($firstArr, $secondArr);
             ?>
           </span>
-          <em>(mb_strlen)</em>
+          <em>(array_diff_assoc())</em>
         </div>
       </li>
       <li>
-        <h6>Правильно ли утверждение true равно 1</h6>
+        <h6>Получить все вторые элементы вложенных массивов:</h6>
+        <pre>
+          $firstArr = [
+            'one' => 1,
+            'two' => [
+              'one' => 1,
+              'seven' => 22,
+              'three' => 32,
+            ],
+            'three' => [
+              'one' => 1,
+              'two' => 2,
+            ],
+            'foure' => 5,
+            'five' => [
+              'three' => 32,
+              'foure' => 5,
+              'five' => 12,
+            ],  
+          ];
+        </pre>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo checkIdentity(true, 1);
+              $firstArr = [
+                'one' => 1,
+                'two' => [
+                  'one' => 1,
+                  'seven' => 22,
+                  'three' => 32,
+                ],
+                'three' => [
+                  'one' => 1,
+                  'two' => 2,
+                ],
+                'foure' => 5,
+                'five' => [
+                  'three' => 32,
+                  'foure' => 5,
+                  'five' => 12,
+                ],  
+              ];
+
+              echo getSecondNestedArrElements($firstArr);
             ?>
           </span>
-          <em>(==)</em>
-        </div>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              echo checkStrictIdentity(true, 1);
-            ?>
-          </span>
-          <em>(===)</em>
-        </div>
-      </li>
-      <li>
-        <h6>Правильно ли утверждение false тождественно 0</h6>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              echo checkIdentity(false, 0);
-            ?>
-          </span>
-          <em>(==)</em>
-        </div>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              echo checkStrictIdentity(false, 0);
-            ?>
-          </span>
-          <em>(===)</em>
-        </div>
-      </li>
-      <li>
-        <h6>Какая строка длиннее three - три</h6>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              echo compareLength('three', 'три');
-            ?>
-          </span>
+          <em>(foreach(), is_array(), array_slice())</em>
         </div>
       </li>
       <li>
-        <h6>Какое число больше 125 умножить на 13 плюс 7 или 223 плюс 28 умножить 2</h6>
+        <h6>Получить общее количество элементов в массиве:</h6>
+        <pre>
+          $firstArr = [
+            'one' => 1,
+            'two' => [
+              'one' => 1,
+              'seven' => 22,
+              'three' => 32,
+            ],
+            'three' => [
+              'one' => 1,
+              'two' => 2,
+            ],
+            'foure' => 5,
+            'five' => [
+              'three' => 32,
+              'foure' => 5,
+              'five' => 12,
+            ],  
+          ];
+        </pre>
         <div>
           <b>Result:</b>
           <span>
             <?php
-              echo getBiggerNum(125 * 13 + 7, 223 + 28 * 2);
+              $firstArr = [
+                'one' => 1,
+                'two' => [
+                  'one' => 1,
+                  'seven' => 22,
+                  'three' => 32,
+                ],
+                'three' => [
+                  'one' => 1,
+                  'two' => 2,
+                ],
+                'foure' => 5,
+                'five' => [
+                  'three' => 32,
+                  'foure' => 5,
+                  'five' => 12,
+                ],  
+              ];
+
+              echo getTotalAmountOfArrElements($firstArr);
             ?>
           </span>
+          <em>(count($val, COUNT_RECURSIVE))</em>
+        </div>
+      </li>
+      <li>
+        <h6>Получить сумму всех значений в массиве:</h6>
+        <pre>
+          $firstArr = [
+            'one' => 1,
+            'two' => [
+              'one' => 1,
+              'seven' => 22,
+              'three' => 32,
+            ],
+            'three' => [
+              'one' => 1,
+              'two' => 2,
+            ],
+            'foure' => 5,
+            'five' => [
+              'three' => 32,
+              'foure' => 5,
+              'five' => 12,
+            ],  
+          ];
+        </pre>
+        <div>
+          <b>Result:</b>
+          <span>
+            <?php
+              $firstArr = [
+                'one' => 1,
+                'two' => [
+                  'one' => 1,
+                  'seven' => 22,
+                  'three' => 32,
+                ],
+                'three' => [
+                  'one' => 1,
+                  'two' => 2,
+                ],
+                'foure' => 5,
+                'five' => [
+                  'three' => 32,
+                  'foure' => 5,
+                  'five' => 12,
+                ],
+              ];
+
+              echo getSumOfAllArrElementsVal($firstArr);
+            ?>
+          </span>
+          <em>(foreach(), is_array(), recursive)</em>
         </div>
       </li>
     </ol>
       <?php
-        //* 1: __________________________________________________
-        
-        function getRemainderOfDivision($dividend, $divider) {
-          $res = $dividend % $divider;
+        //* 1: ==================================================
 
-          return $res;
+        function getArrLength($arr) {
+          $length = count($arr);
+
+          return $length;
         }
 
-        //* 2: __________________________________________________
+        //* 2: ==================================================
 
-        function getWholePartOfAddition($firstTerm, $secondTerm) {
-          $addition = $firstTerm + $secondTerm;
-          $wholePart = round($addition, 0, PHP_ROUND_HALF_DOWN);
+        function shiftChosenArrElementsToEnd($arr, $length) {
+          $splice = array_splice($arr, 0, $length);
 
-          return $wholePart;
+          array_push($arr, ...$splice);
+
+          echo '<pre>';
+          print_r($arr);
+          echo '</pre>';
         }
 
-        function getWholePartOfAddition2($firstTerm, $secondTerm) {
-          $addition = $firstTerm + $secondTerm;
-          $wholePart = floor($addition);
+        //* 3: ==================================================
 
-          return $wholePart;
+        function getSumOfChosenArrElementsRange($arr, $offset, $length) {
+          $slice = array_slice($arr, $offset, $length);
+          $sum = array_sum($slice);
+
+          return $sum;
         }
 
-        //* 3: __________________________________________________
+        //* 4, 5: ==================================================
 
-        function getSqrtOfNum($num) {
-          return sqrt($num);
+        function findDiffInArrElements($a, $b) {
+          $diff = array_diff_key($a, $b);
+
+          echo '<pre>';
+          print_r($diff);
+          echo '</pre>';
         }
 
-        //* 4: __________________________________________________
+        //* 6: ==================================================
 
-        function getSubStrInPhrase($pos, $str) {
-          $subStrings = explode(' ', $str);
-          $res =  $subStrings[$pos - 1];
+        function findDiffInArrElementsByValСoincidence($firstArr, $secondArr) {
+          $diff = array_intersect_assoc($firstArr, $secondArr);
 
-          return  $res;
+          echo '<pre>';
+          print_r($diff);
+          echo '</pre>';
         }
 
-        //* 5: __________________________________________________
+        //* 7: ==================================================
 
-        function getSymbolInStr($str, $pos) {
-          $res = mb_substr($str, $pos - 1, 1);
+        function findDiffInArrElementsByValAbsence($firstArr, $secondArr) {
+          $diff = array_diff_assoc($firstArr, $secondArr);
 
-          return  $res;
+          echo '<pre>';
+          print_r($diff);
+          echo '</pre>';
         }
 
-        //* 6: __________________________________________________
+        //* 8: ==================================================
 
-        function capitalizeAllSubStr($str) {
-          $res = mb_convert_case($str, MB_CASE_TITLE, "UTF-8");
+        function getSecondNestedArrElements($arr) {
+          foreach ($arr as $key => $val) {
+            if (is_array($val)) {
+              $secondNestedArrElements = array_slice($val, 1, 1);
 
-          return  $res;
-        }
-
-        //* 7: __________________________________________________
-
-        function getStrLength($str) {
-          $res = mb_strlen($str);
-
-          return  $res;
-        }
-
-        //* 8: __________________________________________________
-
-        function checkIdentity($firstComparable, $secondComparable) {
-          if ($firstComparable == $secondComparable) {
-            return "equal";
-          } else {
-            return "not equal";
+              echo '<pre>';
+              print_r($secondNestedArrElements);
+              echo '</pre>';
+            }
           }
         }
 
-        function checkStrictIdentity($firstComparable, $secondComparable) {
-          if ($firstComparable === $secondComparable) {
-            return "equal";
-          } else {
-            return "not equal";
-          }
+        //* 8: ==================================================
+
+        function getTotalAmountOfArrElements($arr) {
+          return count($arr, COUNT_RECURSIVE);
         }
 
-        //* 9, 10: __________________________________________________
+        //* 10: ==================================================
 
-        function compareLength($firstComparable, $secondComparable) {
-          $firstComparableLength = mb_strlen($firstComparable);
-          $SecondComparableLength = mb_strlen($secondComparable);
+        function getSumOfAllArrElementsVal($arr) {
+          $sum = 0;
 
-          if ($firstComparableLength > $SecondComparableLength) {
-            return $firstComparable . ' has bigger length than ' .  $secondComparable;
-          } else {
-            return $firstComparable . ' has smaller length than ' .  $secondComparable;
+          foreach ($arr as $key => $val) {
+            if (is_array($val)) {
+              $sum += getSumOfAllArrElementsVal($val);
+            } else {
+              $sum += $val;
+            }
           }
-        }
 
-        //* 11: __________________________________________________
-
-        function getBiggerNum($firstNum, $secondNum) {
-          if ($firstNum > $secondNum) {
-            return $firstNum . ' is bigger than ' .  $secondNum;
-          } else {
-            return $firstNum . ' is smaller than ' .  $secondNum;
-          }
+          return $sum;
         }
       ?> 
   </body>
