@@ -123,6 +123,32 @@
               echo findDiffInArrElements($secondArr, $firstArr);
             ?>
           </span>
+          <em>(array_diff())</em>
+        </div>
+        <div>
+          <b>Result:</b>
+          <span>
+            <?php
+              $firstArr = [
+                'one' => 1,
+                'two' => 2,
+                'three' => 3,
+                'foure' => 5,
+                'five' => 12,
+              ];
+      
+              $secondArr = [
+                'one' => 1,
+                'seven' => 22,
+                'three' => 32,
+                'foure' => 5,
+                'five' => 13,
+                'six' => 37,
+              ];
+
+              echo findDiffInArrElements2($secondArr, $firstArr);
+            ?>
+          </span>
           <em>(array_diff_key())</em>
         </div>
       </li>
@@ -168,6 +194,32 @@
               ];
 
               echo findDiffInArrElements($firstArr, $secondArr);
+            ?>
+          </span>
+          <em>(array_diff())</em>
+        </div>
+        <div>
+          <b>Result:</b>
+          <span>
+            <?php
+              $firstArr = [
+                'one' => 1,
+                'two' => 2,
+                'three' => 3,
+                'foure' => 5,
+                'five' => 12,
+              ];
+      
+              $secondArr = [
+                'one' => 1,
+                'seven' => 22,
+                'three' => 32,
+                'foure' => 5,
+                'five' => 13,
+                'six' => 37,
+              ];
+
+              echo findDiffInArrElements2($firstArr, $secondArr);
             ?>
           </span>
           <em>(array_diff_key())</em>
@@ -454,6 +506,14 @@
         //* 4, 5: ==================================================
 
         function findDiffInArrElements($a, $b) {
+          $diff = array_diff($a, $b);
+
+          echo '<pre>';
+          print_r($diff);
+          echo '</pre>';
+        }
+
+        function findDiffInArrElements2($a, $b) {
           $diff = array_diff_key($a, $b);
 
           echo '<pre>';
