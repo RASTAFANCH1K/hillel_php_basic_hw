@@ -1,521 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hillel homeworks">
-    <title>HW-2</title>
-    <style>
-      h6 {
-        margin: 0 0 10px 0;
-        font-weight: 400;
-        font-size: 18px;
-      }
+<?php
 
-      li {
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #000;
-      }
+//* 1. ==================================================
 
-      li:last-child {
-        border-bottom: 0;
-      }
+echo '1. Создать функцию определяющую какой тип данных ей передан и выводящей соответствующее сообщение:' . '<br>';
+echo '<br>';
+echo 'Variant 1' . '<br>';
+echo '<br>';
 
-      b,
-      em {
-        display: inline-block;
-      }
+function checkDataType($val) {
+  $res = gettype($val);
 
-      span {
-        display: block;
-        margin-right: 4px;
-        color: red;
-      }
-    </style>
-  </head>
-  <body>
-    <ol>
-      <li>
-        <h6>$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6]; Посчитать длину массива:</h6>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+  return $res;
+}
 
-              echo getArrLength($arr);
-            ?>
-          </span>
-          <em>(count())</em>
-        </div>
-      </li>
-      <li>
-        <h6>$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6]; Переместить первые 4 элемента массива в конец массива:</h6>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+echo '1. ' . checkDataType(100) . '<br>';
+echo '2. ' . checkDataType(100.1) . '<br>';
+echo '3. ' . checkDataType('string') . '<br>';
+echo '4. ' . checkDataType(true) . '<br>';
+echo '5. ' . checkDataType(false) . '<br>';
+echo '6. ' . checkDataType([]) . '<br>';
+echo '7. ' . checkDataType(new stdClass()) . '<br>';
+echo '8. ' . checkDataType(fopen("foo", "w")) . '<br>';
+echo '9. ' . checkDataType(NULL) . '<br>';
 
-              echo shiftChosenArrElementsToEnd($arr, 4);
-            ?>
-          </span>
-          <em>(array_splice() + array_push() + ...)</em>
-        </div>
-      </li>
-      <li>
-        <h6>$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6]; Получить сумму 4,5,6 элемента:</h6>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+echo '<br>';
+echo 'Variant 2' . '<br>';
+echo '<br>';
 
-              echo getSumOfChosenArrElementsRange($arr, 3, 3);
-            ?>
-          </span>
-          <em>(array_slice() + array_sum())</em>
-        </div>
-      </li>
-      <li>
-        <h6>Найти все элементы которые отсутствуют в первом массиве и присутствуют во втором:</h6>
-        <pre>
-          $firstArr = [
-            'one' => 1,
-            'two' => 2,
-            'three' => 3,
-            'foure' => 5,
-            'five' => 12,
-          ];
+function checkDataType2($val) {
+  if (is_int($val)) { // is_integer, is_long
+    return 'integer';
+  } else if (is_float($val)) { // is_double, is_real
+    return 'float';
+  } else if (is_string($val)) {
+    return 'string';
+  } else if (is_bool($val)) {
+    return 'boolean';
+  } else if (is_array($val)) {
+    return 'array';
+  } else if (is_object($val)) {
+    return 'object';
+  } else if (is_resource($val)) {
+    return 'resource';
+  } else if (is_null($val)) {
+    return 'NULL';
+  }
+}
 
-          $secondArr = [
-            'one' => 1,
-            'seven' => 22,
-            'three' => 32,
-            'foure' => 5,
-            'five' => 13,
-            'six' => 37,
-          ];
-        </pre>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $firstArr = [
-                'one' => 1,
-                'two' => 2,
-                'three' => 3,
-                'foure' => 5,
-                'five' => 12,
-              ];
-      
-              $secondArr = [
-                'one' => 1,
-                'seven' => 22,
-                'three' => 32,
-                'foure' => 5,
-                'five' => 13,
-                'six' => 37,
-              ];
+echo '1. ' . checkDataType2(100) . '<br>';
+echo '2. ' . checkDataType2(100.1) . '<br>';
+echo '3. ' . checkDataType2('string') . '<br>';
+echo '4. ' . checkDataType2(true) . '<br>';
+echo '5. ' . checkDataType2(false) . '<br>';
+echo '6. ' . checkDataType2([]) . '<br>';
+echo '7. ' . checkDataType2(new stdClass()) . '<br>';
+echo '8. ' . checkDataType2(fopen("foo", "w")) . '<br>';
+echo '9. ' . checkDataType2(NULL) . '<br>';
 
-              echo findDiffInArrElements($secondArr, $firstArr);
-            ?>
-          </span>
-          <em>(array_diff_key())</em>
-        </div>
-      </li>
-      <li>
-        <h6>Найти все элементы которые присутствую в первом и отсутствуют во втором:</h6>
-        <pre>
-          $firstArr = [
-            'one' => 1,
-            'two' => 2,
-            'three' => 3,
-            'foure' => 5,
-            'five' => 12,
-          ];
+echo '<br>';
+echo '<hr>';
 
-          $secondArr = [
-            'one' => 1,
-            'seven' => 22,
-            'three' => 32,
-            'foure' => 5,
-            'five' => 13,
-            'six' => 37,
-          ];
-        </pre>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $firstArr = [
-                'one' => 1,
-                'two' => 2,
-                'three' => 3,
-                'foure' => 5,
-                'five' => 12,
-              ];
-      
-              $secondArr = [
-                'one' => 1,
-                'seven' => 22,
-                'three' => 32,
-                'foure' => 5,
-                'five' => 13,
-                'six' => 37,
-              ];
+//* 2. ==================================================
 
-              echo findDiffInArrElements($firstArr, $secondArr);
-            ?>
-          </span>
-          <em>(array_diff_key())</em>
-        </div>
-      </li>
-      <li>
-        <h6>Найти все элементы значения которых совпадают:</h6>
-        <pre>
-          $firstArr = [
-            'one' => 1,
-            'two' => 2,
-            'three' => 3,
-            'foure' => 5,
-            'five' => 12,
-          ];
+echo '2. Создать функцию которая считает все буквы b в переданной строке, в случае если передается не строка функция должна возвращать false:' . '<br>';
+echo '<br>';
+echo '"to be or not to be that is the question"' . '<br>'; 
+echo '<br>';
 
-          $secondArr = [
-            'one' => 1,
-            'seven' => 22,
-            'three' => 32,
-            'foure' => 5,
-            'five' => 13,
-            'six' => 37,
-          ];
-        </pre>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $firstArr = [
-                'one' => 1,
-                'two' => 2,
-                'three' => 3,
-                'foure' => 5,
-                'five' => 12,
-              ];
-      
-              $secondArr = [
-                'one' => 1,
-                'seven' => 22,
-                'three' => 32,
-                'foure' => 5,
-                'five' => 13,
-                'six' => 37,
-              ];
+function countLettersInStr($str, $letter) {
+  if (is_string($str) && is_string($letter)) {
+    $res = substr_count($str, $letter);
 
-              echo findDiffInArrElementsByValСoincidence($firstArr, $secondArr);
-            ?>
-          </span>
-          <em>(array_intersect_assoc())</em>
-        </div>
-      </li>
-      <li>
-        <h6>Найти все элементы значения которых отличается:</h6>
-        <pre>
-          $firstArr = [
-            'one' => 1,
-            'two' => 2,
-            'three' => 3,
-            'foure' => 5,
-            'five' => 12,
-          ];
+    return $res;
+  } else {
+    echo 'passed argument must be a string';
+    return false;
+  }
+}
 
-          $secondArr = [
-            'one' => 1,
-            'seven' => 22,
-            'three' => 32,
-            'foure' => 5,
-            'five' => 13,
-            'six' => 37,
-          ];
-        </pre>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $firstArr = [
-                'one' => 1,
-                'two' => 2,
-                'three' => 3,
-                'foure' => 5,
-                'five' => 12,
-              ];
-      
-              $secondArr = [
-                'one' => 1,
-                'seven' => 22,
-                'three' => 32,
-                'foure' => 5,
-                'five' => 13,
-                'six' => 37,
-              ];
+echo countLettersInStr('to be or not to be that is the question', 'b') . '<br>';
 
-              echo findDiffInArrElementsByValAbsence($firstArr, $secondArr);
-            ?>
-          </span>
-          <em>(array_diff_assoc())</em>
-        </div>
-      </li>
-      <li>
-        <h6>Получить все вторые элементы вложенных массивов:</h6>
-        <pre>
-          $firstArr = [
-            'one' => 1,
-            'two' => [
-              'one' => 1,
-              'seven' => 22,
-              'three' => 32,
-            ],
-            'three' => [
-              'one' => 1,
-              'two' => 2,
-            ],
-            'foure' => 5,
-            'five' => [
-              'three' => 32,
-              'foure' => 5,
-              'five' => 12,
-            ],  
-          ];
-        </pre>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $firstArr = [
-                'one' => 1,
-                'two' => [
-                  'one' => 1,
-                  'seven' => 22,
-                  'three' => 32,
-                ],
-                'three' => [
-                  'one' => 1,
-                  'two' => 2,
-                ],
-                'foure' => 5,
-                'five' => [
-                  'three' => 32,
-                  'foure' => 5,
-                  'five' => 12,
-                ],  
-              ];
+echo '<br>';
+echo '<hr>';
 
-              echo getSecondNestedArrElements($firstArr);
-            ?>
-          </span>
-          <em>(foreach(), is_array(), array_slice())</em>
-        </div>
-      </li>
-      <li>
-        <h6>Получить общее количество элементов в массиве:</h6>
-        <pre>
-          $firstArr = [
-            'one' => 1,
-            'two' => [
-              'one' => 1,
-              'seven' => 22,
-              'three' => 32,
-            ],
-            'three' => [
-              'one' => 1,
-              'two' => 2,
-            ],
-            'foure' => 5,
-            'five' => [
-              'three' => 32,
-              'foure' => 5,
-              'five' => 12,
-            ],  
-          ];
-        </pre>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $firstArr = [
-                'one' => 1,
-                'two' => [
-                  'one' => 1,
-                  'seven' => 22,
-                  'three' => 32,
-                ],
-                'three' => [
-                  'one' => 1,
-                  'two' => 2,
-                ],
-                'foure' => 5,
-                'five' => [
-                  'three' => 32,
-                  'foure' => 5,
-                  'five' => 12,
-                ],  
-              ];
+//* 3. ==================================================
 
-              echo getTotalAmountOfArrElements($firstArr);
-            ?>
-          </span>
-          <em>(count($val, COUNT_RECURSIVE))</em>
-        </div>
-      </li>
-      <li>
-        <h6>Получить сумму всех значений в массиве:</h6>
-        <pre>
-          $firstArr = [
-            'one' => 1,
-            'two' => [
-              'one' => 1,
-              'seven' => 22,
-              'three' => 32,
-            ],
-            'three' => [
-              'one' => 1,
-              'two' => 2,
-            ],
-            'foure' => 5,
-            'five' => [
-              'three' => 32,
-              'foure' => 5,
-              'five' => 12,
-            ],  
-          ];
-        </pre>
-        <div>
-          <b>Result:</b>
-          <span>
-            <?php
-              $firstArr = [
-                'one' => 1,
-                'two' => [
-                  'one' => 1,
-                  'seven' => 22,
-                  'three' => 32,
-                ],
-                'three' => [
-                  'one' => 1,
-                  'two' => 2,
-                ],
-                'foure' => 5,
-                'five' => [
-                  'three' => 32,
-                  'foure' => 5,
-                  'five' => 12,
-                ],
-              ];
+echo '3. Создать функцию которая считает сумму значений всех элементов массива произвольной глубины:' . '<br>';
+echo '<br>';
+echo 'Variant 1' . '<br>';
+echo '<br>';
 
-              echo getSumOfAllArrElementsVal($firstArr);
-            ?>
-          </span>
-          <em>(foreach(), is_array(), recursive)</em>
-        </div>
-      </li>
-    </ol>
-      <?php
-        //* 1: ==================================================
+$arr = [
+  'one' => 1,
+  'two' => 3,
+  'three' => [
+    'four' => 4,
+    'five' => 5,
+    'six' => [
+      'seven' => 7,
+      'eight' => 8,
+      'nine' => 9
+    ]
+  ]
+];
 
-        function getArrLength($arr) {
-          $length = count($arr);
+echo '<pre>';
+print_r($arr);
+echo '</pre>';
 
-          return $length;
-        }
+function getSumOfAllArrElementsVal(array $arr) {
+  $sum = 0;
 
-        //* 2: ==================================================
+  foreach ($arr as $key => $val) {
+    if (is_array($val)) {
+      $sum += getSumOfAllArrElementsVal($val);
+    } else {
+      $sum += $val;
+    }
+  }
 
-        function shiftChosenArrElementsToEnd($arr, $length) {
-          $splice = array_splice($arr, 0, $length);
+  return $sum;
+}
 
-          array_push($arr, ...$splice);
+echo getSumOfAllArrElementsVal($arr) . '<br>';
 
-          echo '<pre>';
-          print_r($arr);
-          echo '</pre>';
-        }
+echo '<br>';
+echo 'Variant 2' . '<br>';
+echo '<br>';
 
-        //* 3: ==================================================
+function getSumOfAllArrElementsVal2(array $arr) : int {
+  $sum = 0;
 
-        function getSumOfChosenArrElementsRange($arr, $offset, $length) {
-          $slice = array_slice($arr, $offset, $length);
-          $sum = array_sum($slice);
+  array_walk_recursive($arr, function($num) use (&$sum) {
+      $sum += $num;
+  });
 
-          return $sum;
-        }
+  return  $sum;
+}
 
-        //* 4, 5: ==================================================
+echo getSumOfAllArrElementsVal2($arr) . '<br>';
 
-        function findDiffInArrElements($a, $b) {
-          $diff = array_diff_key($a, $b);
+echo '<br>';
+echo '<hr>';
 
-          echo '<pre>';
-          print_r($diff);
-          echo '</pre>';
-        }
+//* 4. ==================================================
 
-        //* 6: ==================================================
+echo '4. Создать функцию которая определит сколько квадратов меньшего размера можно вписать в квадрат большего размера размер возвращать в float:' . '<br>';
+echo '<br>';
 
-        function findDiffInArrElementsByValСoincidence($firstArr, $secondArr) {
-          $diff = array_intersect_assoc($firstArr, $secondArr);
+function squaring($sqrFirst, $sqrSecond) {
+  $res = 0;
 
-          echo '<pre>';
-          print_r($diff);
-          echo '</pre>';
-        }
+  if ($sqrFirst > $sqrSecond){
+    $res = $sqrFirst / $sqrSecond;
+  } else {
+    $res = $sqrSecond / $sqrFirst;
+  }
 
-        //* 7: ==================================================
+  return $res;
+}
 
-        function findDiffInArrElementsByValAbsence($firstArr, $secondArr) {
-          $diff = array_diff_assoc($firstArr, $secondArr);
+echo squaring(1, 9) . '<br>';
+echo squaring(3, 9) . '<br>';
+echo squaring(5, 9) . '<br>';
+echo squaring(9, 9) . '<br>';
 
-          echo '<pre>';
-          print_r($diff);
-          echo '</pre>';
-        }
-
-        //* 8: ==================================================
-
-        function getSecondNestedArrElements($arr) {
-          foreach ($arr as $key => $val) {
-            if (is_array($val)) {
-              $secondNestedArrElements = array_slice($val, 1, 1);
-
-              echo '<pre>';
-              print_r($secondNestedArrElements);
-              echo '</pre>';
-            }
-          }
-        }
-
-        //* 8: ==================================================
-
-        function getTotalAmountOfArrElements($arr) {
-          return count($arr, COUNT_RECURSIVE);
-        }
-
-        //* 10: ==================================================
-
-        function getSumOfAllArrElementsVal($arr) {
-          $sum = 0;
-
-          foreach ($arr as $key => $val) {
-            if (is_array($val)) {
-              $sum += getSumOfAllArrElementsVal($val);
-            } else {
-              $sum += $val;
-            }
-          }
-
-          return $sum;
-        }
-      ?> 
-  </body>
-</html>
+echo '<br>';
