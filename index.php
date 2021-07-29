@@ -111,9 +111,6 @@ echo '<hr>';
 
 echo '4. Создать функцию которая определит сколько квадратов меньшего размера можно вписать в квадрат большего размера размер возвращать в float:' . '<br>';
 echo '<br>';
-echo 'Variant 1' . '<br>';
-echo '<br>';
-
 
 function squaring($sqrFirst, $sqrSecond) : float {
   $res = 0;
