@@ -133,23 +133,3 @@ echo squaring(5, 9) . '<br>';
 echo squaring(9, 9) . '<br>';
 
 echo '<br>';
-echo 'Variant 2' . '<br>';
-echo '<br>';
-
-function squaring2($sqrFirst, $sqrSecond) : float {
-  $res = 0;
-
-  if ($sqrFirst < $sqrSecond){
-    $res = sqrt($sqrSecond) / sqrt($sqrFirst);
-  } else {
-    $res = sqrt($sqrFirst) / sqrt($sqrSecond);
-  }
-
-  return $res;
-}
-
-echo squaring2(9, 81) . '<br>';
-echo squaring2(81, 6561) . '<br>';
-
-
-echo '<br>';
