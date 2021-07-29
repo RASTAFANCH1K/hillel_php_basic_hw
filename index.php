@@ -111,14 +111,17 @@ echo '<hr>';
 
 echo '4. Создать функцию которая определит сколько квадратов меньшего размера можно вписать в квадрат большего размера размер возвращать в float:' . '<br>';
 echo '<br>';
+echo 'Variant 1' . '<br>';
+echo '<br>';
+
 
 function squaring($sqrFirst, $sqrSecond) : float {
   $res = 0;
 
-  if ($sqrFirst > $sqrSecond){
-    $res = ($sqrFirst * $sqrFirst) / ($sqrSecond * $sqrSecond);
-  } else {
+  if ($sqrFirst < $sqrSecond) {
     $res = ($sqrSecond * $sqrSecond) / ($sqrFirst * $sqrFirst);
+  } else {
+    $res = ($sqrFirst * $sqrFirst) / ($sqrSecond * $sqrSecond);
   }
 
   return $res;
@@ -128,5 +131,25 @@ echo squaring(1, 9) . '<br>';
 echo squaring(3, 9) . '<br>';
 echo squaring(5, 9) . '<br>';
 echo squaring(9, 9) . '<br>';
+
+echo '<br>';
+echo 'Variant 2' . '<br>';
+echo '<br>';
+
+function squaring2($sqrFirst, $sqrSecond) : float {
+  $res = 0;
+
+  if ($sqrFirst < $sqrSecond){
+    $res = sqrt($sqrSecond) / sqrt($sqrFirst);
+  } else {
+    $res = sqrt($sqrFirst) / sqrt($sqrSecond);
+  }
+
+  return $res;
+}
+
+echo squaring2(9, 81) . '<br>';
+echo squaring2(81, 6561) . '<br>';
+
 
 echo '<br>';
