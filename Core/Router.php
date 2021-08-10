@@ -21,23 +21,30 @@ final class Router
     $action = $urlArr[2];
 
     if (isset($controller)) {
-      $namespace = 'App\\Controllers\\' . ucfirst($controller);
+      $namespace = "App\\Controllers\\" . ucfirst($controller);
 
       if (class_exists($namespace)) {
         $page = new $namespace;
 
-        if (isset($action)) {
+        if ($action) {
           if (method_exists($page, $action)) {
             $page->$action();
           } else {
             $page = new Page404();
           }
+        } elseif ($action == ''){
+            $page->index();
+        } else {
+            $page = new Page404();
         }
       } else {
         $page = new Page404();
       }
     } else {
       $page = new Index();
+      $page->index();
     }
+
+    return $page;
   }
 }

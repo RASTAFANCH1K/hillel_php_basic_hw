@@ -8,6 +8,9 @@ class About
 
   public function __construct()
   {
+  }
+
+  public function index() {
     echo $this->className . '<br>';
   }
 

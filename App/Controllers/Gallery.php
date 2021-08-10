@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Controllers;
-
 class Gallery
 {
   protected $className = 'Gallery';
 
   public function __construct()
   {
+  }
+
+  public function index() {
     echo $this->className . '<br>';
   }
 
