@@ -2,16 +2,24 @@
 
 namespace App\Controllers;
 
+use Core\View;
+
 class About
 {
   protected $className = 'About';
 
-  public function __construct()
-  {
-  }
-
   public function index() {
-    echo $this->className . '<br>';
+    $data = [
+      'head' => [
+        'title' => 'About',
+      ],
+      'body' => [
+        'heading' => 'ABOUT',
+      ],
+      'list' => ['about one', 'about two', 'about three'],
+    ];
+
+    View::view('about', $data);
   }
 
   public function hi() {

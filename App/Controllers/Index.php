@@ -2,15 +2,21 @@
 
 namespace App\Controllers;
 
+use Core\View;
+
 class Index
 {
-  protected $className = 'Index';
-
-  public function __construct()
-  {
-  }
-
   public function index() {
-    echo $this->className . '<br>';
+    $data = [
+      'head' => [
+        'title' => 'Index',
+      ],
+      'body' => [
+        'heading' => 'INDEX',
+      ],
+      'list' => ['index one', 'index two', 'index three'],
+    ];
+
+    View::view('index', $data);
   }
 }

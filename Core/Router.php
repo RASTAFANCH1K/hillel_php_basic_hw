@@ -31,14 +31,17 @@ final class Router
             $page->$action();
           } else {
             $page = new Page404();
+            $page->index();
           }
-        } elseif ($action == ''){
+        } elseif ($action == '') {
             $page->index();
         } else {
             $page = new Page404();
+            $page->index();
         }
       } else {
         $page = new Page404();
+        $page->index();
       }
     } else {
       $page = new Index();

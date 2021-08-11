@@ -2,12 +2,21 @@
 
 namespace App\Controllers;
 
+use Core\View;
+
 class Page404
 {
-  protected $className = 'Page not found';
+  public function index() {
+    $data = [
+      'head' => [
+        'title' => 'Page404',
+      ],
+      'body' => [
+        'heading' => 'PAGE 404',
+      ],
+      'list' => ['page404 one', 'page404 two', 'page404 three'],
+    ];
 
-  public function __construct()
-  {
-    echo $this->className . '<br>';
+    View::view('page404', $data);
   }
 }
