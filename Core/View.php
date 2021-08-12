@@ -4,8 +4,8 @@ namespace Core;
 
 class View
 {
-  public static function view($name, $data = NULL)
+  public static function view($part, $name, $data = NULL)
   {
-    require 'Web/' . $name . '.php';
+    require 'Web/' . $part . '/' . $name . '.php';
   }
 }

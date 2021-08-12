@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use Core\View;
 
-class About
+class Admin
 {
-  protected $className = 'About';
+  protected $className = 'Admin';
 
   public function index() {
     $data = [
       'head' => [
-        'title' => 'About',
+        'title' => 'Admin',
       ],
       'body' => [
-        'heading' => 'ABOUT',
+        'heading' => 'ADMIN',
+        'paragraph' => 'Welcome to admin page'
       ],
-      'list' => ['about one', 'about two', 'about three'],
     ];
 
-    View::view('about', $data);
+    View::view('admin', 'admin', $data);
   }
 
   public function hi() {

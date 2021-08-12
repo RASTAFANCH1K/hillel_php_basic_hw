@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Home;
 
 use Core\View;
 
@@ -15,11 +15,11 @@ class Gallery
       ],
       'body' => [
         'heading' => 'GALLERY',
+        'paragraph' => 'There are lot\'s of various photos',
       ],
-      'list' => ['gallery one', 'gallery two', 'gallery three'],
     ];
 
-    View::view('gallery', $data);
+    View::view('home', 'gallery', $data);
   }
 
   public function hi() {

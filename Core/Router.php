@@ -2,8 +2,8 @@
 
 namespace Core;
 
-use App\Controllers\Index;
-use App\Controllers\Page404;
+use App\Controllers\Home\Index;
+use App\Controllers\Home\Page404;
 
 final class Router
 {
@@ -21,7 +21,11 @@ final class Router
     $action = $urlArr[2];
 
     if (isset($controller)) {
-      $namespace = "App\\Controllers\\" . ucfirst($controller);
+      if ($controller == 'admin') {
+        $namespace = "App\\Controllers\\Admin\\" . ucfirst($controller);
+      } else {
+        $namespace = "App\\Controllers\\Home\\" . ucfirst($controller);
+      }
 
       if (class_exists($namespace)) {
         $page = new $namespace;

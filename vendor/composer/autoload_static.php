@@ -34,12 +34,14 @@ class ComposerStaticInit55efda22baed57d2d4111f873a00a4ee
     );
 
     public static $classMap = array (
-        'App\\Controllers\\About' => __DIR__ . '/../..' . '/app/Controllers/About.php',
-        'App\\Controllers\\Gallery' => __DIR__ . '/../..' . '/app/Controllers/Gallery.php',
-        'App\\Controllers\\Index' => __DIR__ . '/../..' . '/app/Controllers/Index.php',
-        'App\\Controllers\\Page404' => __DIR__ . '/../..' . '/app/Controllers/Page404.php',
+        'App\\Controllers\\Admin\\Admin' => __DIR__ . '/../..' . '/app/Controllers/Admin/Admin.php',
+        'App\\Controllers\\Home\\About' => __DIR__ . '/../..' . '/app/Controllers/Home/About.php',
+        'App\\Controllers\\Home\\Gallery' => __DIR__ . '/../..' . '/app/Controllers/Home/Gallery.php',
+        'App\\Controllers\\Home\\Index' => __DIR__ . '/../..' . '/app/Controllers/Home/Index.php',
+        'App\\Controllers\\Home\\Page404' => __DIR__ . '/../..' . '/app/Controllers/Home/Page404.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
+        'Core\\View' => __DIR__ . '/../..' . '/core/View.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

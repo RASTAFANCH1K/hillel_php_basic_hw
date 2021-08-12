@@ -12,12 +12,8 @@
     <h1>
       <?=$data['body']['heading'] ?>
     </h1>
-    <ul>
-      <?php foreach ($data['list'] as $val) : ?>
-        <li>
-          <?=$val ?>
-        </li>
-      <?php endforeach ?>
-    </ul>
+    <p>
+      <?=$data['body']['paragraph'] ?>
+    </p>
   </body>
 </html>

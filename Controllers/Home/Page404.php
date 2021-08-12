@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Home;
 
 use Core\View;
 
@@ -9,14 +9,14 @@ class Page404
   public function index() {
     $data = [
       'head' => [
-        'title' => 'Page404',
+        'title' => 'Page 404',
       ],
       'body' => [
         'heading' => 'PAGE 404',
+        'paragraph' => 'Sorry, required page does not exist',
       ],
-      'list' => ['page404 one', 'page404 two', 'page404 three'],
     ];
 
-    View::view('page404', $data);
+    View::view('home', 'page404', $data);
   }
 }
