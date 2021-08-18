@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Home;
 
-use Core\View;
+use App\Controllers\AbstractController;
 
-class Gallery
+class Gallery extends AbstractController
 {
   protected $className = 'Gallery';
 
@@ -19,7 +19,7 @@ class Gallery
       ],
     ];
 
-    View::view('home', 'gallery', $data);
+    $this->generateView('home', 'gallery', $data);
   }
 
   public function hi() {

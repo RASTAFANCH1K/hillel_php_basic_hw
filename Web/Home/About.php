@@ -5,15 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-      <?=$data['head']['title'] ?>
+      <?=$data['title'] ?>
     </title>
   </head>
   <body>
     <h1>
-      <?=$data['body']['heading'] ?>
+      <?=$data['title'] ?>
     </h1>
     <p>
-      <?=$data['body']['paragraph'] ?>
+      <strong>
+        Page ID - <?=$data['id'] ?>
+      </strong>
+    </p>
+    <p>
+      <?=$data['paragraph'] ?>
+    </p>
+    <ol>
+      <?php foreach ($data['list'] as $val) : ?>
+        <li>
+          <?=$val ?>
+        </li>
+      <?php endforeach ?>
+    </ol>
+    <p>
+      Chosen list item:
+      <?=$data['listItem'] ?>
     </p>
   </body>
 </html>

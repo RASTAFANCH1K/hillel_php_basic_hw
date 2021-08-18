@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Home;
 
-use Core\View;
+use App\Controllers\AbstractController;
 
-class Index
+class Index extends AbstractController
 {
   protected $className = 'Index';
 
@@ -30,6 +30,6 @@ class Index
       ],
     ];
 
-    View::view('home', 'index', $data);
+    $this->generateView('home', 'index', $data);
   }
 }

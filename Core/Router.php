@@ -16,9 +16,9 @@ final class Router
 
   public function run()
   {
-    $urlArr = explode('/', $this->url);
-    $controller = $urlArr[1];
-    $action = $urlArr[2];
+    $segments = explode('/', $this->url);
+    $controller = $segments[1];
+    $action = $segments[2];
 
     if (isset($controller)) {
       if ($controller == 'admin') {

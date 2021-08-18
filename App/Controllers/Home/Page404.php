@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Home;
 
-use Core\View;
+use App\Controllers\AbstractController;
 
-class Page404
+class Page404 extends AbstractController
 {
   public function index() {
     $data = [
@@ -17,6 +17,6 @@ class Page404
       ],
     ];
 
-    View::view('home', 'page404', $data);
+    $this->generateView('home', 'page404', $data);
   }
 }

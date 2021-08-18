@@ -2,24 +2,25 @@
 
 namespace App\Controllers\Home;
 
-use Core\View;
+use App\Controllers\AbstractController;
+use App\Model\About as AboutModel;
 
-class About
+class About extends AbstractController
 {
   protected $className = 'About';
 
   public function index() {
+    $model = new AboutModel;
+
     $data = [
-      'head' => [
-        'title' => 'About',
-      ],
-      'body' => [
-        'heading' => 'ABOUT',
-        'paragraph' => 'This page is about everything',
-      ],
+      'id' =>  $model->getId(),
+      'title' => $model->getTitle(),
+      'paragraph' => $model->getParagraph(),
+      'list' => $model->getList(),
+      'listItem' => $model->getListItem('special'),
     ];
 
-    View::view('home', 'about', $data);
+    $this->generateView('home', 'about', $data);
   }
 
   public function hi() {

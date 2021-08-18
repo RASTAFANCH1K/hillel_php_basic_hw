@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Admin;
 
-use Core\View;
+use App\Controllers\AbstractController;
 
-class Admin
+class Admin extends AbstractController
 {
   protected $className = 'Admin';
 
@@ -19,7 +19,7 @@ class Admin
       ],
     ];
 
-    View::view('admin', 'admin', $data);
+    $this->gener('admin', 'admin', $data);
   }
 
   public function hi() {
