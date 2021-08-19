@@ -3,20 +3,22 @@
 namespace App\Controllers\Home;
 
 use App\Controllers\AbstractController;
+use App\Model\Gallery as GalleryModel;
 
 class Gallery extends AbstractController
 {
+  /** @var  string */
   protected $className = 'Gallery';
 
   public function index() {
+    $model = new GalleryModel;
+
     $data = [
-      'head' => [
-        'title' => 'Gallery',
-      ],
-      'body' => [
-        'heading' => 'GALLERY',
-        'paragraph' => 'There are lot\'s of various photos',
-      ],
+      'id' =>  $model->getId(),
+      'title' => $model->getTitle(),
+      'paragraph' => $model->getParagraph(),
+      'list' => $model->getList(),
+      'listItem' => $model->getListItem('special'),
     ];
 
     $this->generateView('home', 'gallery', $data);

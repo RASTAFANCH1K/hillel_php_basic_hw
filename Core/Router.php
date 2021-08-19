@@ -7,6 +7,7 @@ use App\Controllers\Home\Page404;
 
 final class Router
 {
+  /** @var  string */
   private $url;
 
   public function __construct()
@@ -14,6 +15,9 @@ final class Router
     $this->url = $_SERVER['PATH_INFO'] ?? NULL;
   }
 
+  /**
+   * Starting the routing
+   */
   public function run()
   {
     $segments = explode('/', $this->url);

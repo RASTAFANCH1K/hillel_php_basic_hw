@@ -4,23 +4,29 @@ namespace App\Model;
 
 use App\Model\AbstractModel;
 
-class About extends AbstractModel
+class Index extends AbstractModel
 {
   /** @var  int */
-  protected $id = 2;
+  protected $id = 1;
 
   /** @var  string */
-  protected $title = 'About';
+  protected $title = 'Index';
 
   /** @var  string */
-  protected $paragraph = 'This page is about everything';
+  protected $paragraph = 'List of available pages:';
 
   /** @var array */
   protected $list = [
-    'one' => 'about first',
-    'two' => 'about second', 
-    'three' => 'about third',
-    'special' => 'about special',
+    'one' =>  'admin',
+    'two' => 'admin/hi', 
+    'three' => 'admin/bye', 
+    'four' => 'about', 
+    'five' =>'about/hi', 
+    'six' =>'about/bye', 
+    'seven' => 'gallery',
+    'eight' =>'gallery/hi', 
+    'nine' =>'gallery/bye',
+    'special' => 'index special',
   ];
 
   /**

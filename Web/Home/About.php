@@ -29,7 +29,9 @@
     </ol>
     <p>
       Chosen list item:
-      <?=$data['listItem'] ?>
+      <b>
+        <?=$data['listItem'] ?>
+      </b>
     </p>
   </body>
 </html>

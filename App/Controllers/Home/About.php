@@ -7,6 +7,7 @@ use App\Model\About as AboutModel;
 
 class About extends AbstractController
 {
+  /** @var  string */
   protected $className = 'About';
 
   public function index() {

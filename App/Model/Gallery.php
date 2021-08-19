@@ -4,23 +4,23 @@ namespace App\Model;
 
 use App\Model\AbstractModel;
 
-class About extends AbstractModel
+class Gallery extends AbstractModel
 {
   /** @var  int */
-  protected $id = 2;
+  protected $id = 3;
 
   /** @var  string */
-  protected $title = 'About';
+  protected $title = 'Gallery';
 
   /** @var  string */
-  protected $paragraph = 'This page is about everything';
+  protected $paragraph = 'There are lot\'s of various photos';
 
   /** @var array */
   protected $list = [
-    'one' => 'about first',
-    'two' => 'about second', 
-    'three' => 'about third',
-    'special' => 'about special',
+    'one' => 'gallery first',
+    'two' => 'gallery second', 
+    'three' => 'gallery third',
+    'special' => 'gallery special',
   ];
 
   /**

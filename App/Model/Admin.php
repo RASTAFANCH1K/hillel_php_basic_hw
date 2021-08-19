@@ -4,23 +4,23 @@ namespace App\Model;
 
 use App\Model\AbstractModel;
 
-class About extends AbstractModel
+class Admin extends AbstractModel
 {
   /** @var  int */
-  protected $id = 2;
+  protected $id = 4;
 
   /** @var  string */
-  protected $title = 'About';
+  protected $title = 'Admin';
 
   /** @var  string */
-  protected $paragraph = 'This page is about everything';
+  protected $paragraph = 'Welcome to admin page';
 
   /** @var array */
   protected $list = [
-    'one' => 'about first',
-    'two' => 'about second', 
-    'three' => 'about third',
-    'special' => 'about special',
+    'one' => 'admin first',
+    'two' => 'admin second', 
+    'three' => 'admin third',
+    'special' => 'admin special',
   ];
 
   /**

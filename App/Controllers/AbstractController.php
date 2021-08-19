@@ -6,7 +6,7 @@ use Core\View;
 
 abstract class AbstractController
 {
-  protected function generateView($part, $name, $data = NULL)
+  protected function generateView(string $part, string $name, array $data = NULL)
   {
     View::view($part, $name, $data);
   }

@@ -3,23 +3,25 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\AbstractController;
+use App\Model\Admin as AdminModel;
 
 class Admin extends AbstractController
 {
+  /** @var  string */
   protected $className = 'Admin';
 
   public function index() {
+    $model = new AdminModel;
+
     $data = [
-      'head' => [
-        'title' => 'Admin',
-      ],
-      'body' => [
-        'heading' => 'ADMIN',
-        'paragraph' => 'Welcome to admin page'
-      ],
+      'id' =>  $model->getId(),
+      'title' => $model->getTitle(),
+      'paragraph' => $model->getParagraph(),
+      'list' => $model->getList(),
+      'listItem' => $model->getListItem('special'),
     ];
 
-    $this->gener('admin', 'admin', $data);
+    $this->generateView('admin', 'admin', $data);
   }
 
   public function hi() {
