@@ -14,11 +14,11 @@
     </h1>
     <p>
       <strong>
-        Page ID - <?=$data['id'] ?>
+        Table ID - <?=$data['id'] ?>
       </strong>
     </p>
     <p>
-      <?=$data['paragraph'] ?>
+      <?=$data['paragraph'] ?>:
     </p>
     <ol>
       <?php foreach ($data['list'] as $val) : ?>

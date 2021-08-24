@@ -6,63 +6,62 @@ use App\Model\AbstractModel;
 
 class Gallery extends AbstractModel
 {
-  /** @var  int */
-  protected $id = 3;
-
-  /** @var  string */
-  protected $title = 'Gallery';
-
-  /** @var  string */
-  protected $paragraph = 'There are lot\'s of various photos';
-
-  /** @var array */
-  protected $list = [
-    'one' => 'gallery first',
-    'two' => 'gallery second', 
-    'three' => 'gallery third',
-    'special' => 'gallery special',
-  ];
+  /**
+   * @var string $table
+   */
+  protected $table = 'gallery';
 
   /**
-   *  @return int
+   * @return int
    */
   public function getId():int
   {
-    return $this->id;
+    $id = $this->getFieldVal($this->table, 'id');
+
+    return $id;
   }
 
   /**
-   *  @return string
+   * @return string
    */
   public function getTitle():string
   {
-    return $this->title;
+    $title = $this->getFieldVal($this->table, 'title');
+
+    return $title;
   }
 
   /**
-   *  @return string
+   * @return string
    */
   public function getParagraph():string
   {
-    return $this->paragraph;
+    $paragraph = $this->getFieldVal($this->table, 'paragraph');
+
+    return $paragraph;
   }
 
   /**
-   *  @return array
+   * @return array
    */
   public function getList():array
   {
-    return $this->list;
+    $JSON = $this->getFieldVal($this->table, 'list');
+    $decodedJSON = json_decode($JSON, true);
+    $list = $decodedJSON['list'];
+    
+    return $list;
   }
 
   /**
-   *  @param string
-   *  @return string
+   * @param string $item
+   * @return string
    */
   public function getListItem(string $item):string
   {
-    $listItem = $this->checkKeyExistence($item, $this->list);
-    
+    $list = $this->getList();
+    $listItem = $this->checkKeyExistence($item, $list);
+
     return $listItem;
   }
 }

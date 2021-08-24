@@ -3,11 +3,13 @@
 namespace Core;
 
 use App\Controllers\Home\Index;
-use App\Controllers\Home\Page404;
+use App\Controllers\Page404;
 
 final class Router
 {
-  /** @var  string */
+  /**
+   * @var string $url
+   */
   private $url;
 
   public function __construct()
@@ -39,17 +41,14 @@ final class Router
             $page->$action();
           } else {
             $page = new Page404();
-            $page->index();
           }
         } elseif ($action == '') {
             $page->index();
         } else {
             $page = new Page404();
-            $page->index();
         }
       } else {
         $page = new Page404();
-        $page->index();
       }
     } else {
       $page = new Index();

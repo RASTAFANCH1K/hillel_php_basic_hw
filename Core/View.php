@@ -4,7 +4,13 @@ namespace Core;
 
 class View
 {
-  public static function view(string $part, string $name, array $data = NULL)
+  /**
+   * @param string $part
+   * @param string $name
+   * @param array $data
+   * @return void
+   */
+  public static function view(string $part = NULL, string $name, array $data = NULL):void
   {
     require 'Web/' . $part . '/' . $name . '.php';
   }

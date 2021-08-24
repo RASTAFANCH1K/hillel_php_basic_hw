@@ -11,6 +11,7 @@ class ComposerStaticInit47a05088ba19b2d17c930d36f7582737
         array (
             'Core\\' => 5,
             'Components\\' => 11,
+            'Common\\' => 7,
         ),
         'A' => 
         array (
@@ -27,6 +28,10 @@ class ComposerStaticInit47a05088ba19b2d17c930d36f7582737
         array (
             0 => __DIR__ . '/../..' . '/components',
         ),
+        'Common\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/common',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -39,13 +44,14 @@ class ComposerStaticInit47a05088ba19b2d17c930d36f7582737
         'App\\Controllers\\Home\\About' => __DIR__ . '/../..' . '/app/Controllers/Home/About.php',
         'App\\Controllers\\Home\\Gallery' => __DIR__ . '/../..' . '/app/Controllers/Home/Gallery.php',
         'App\\Controllers\\Home\\Index' => __DIR__ . '/../..' . '/app/Controllers/Home/Index.php',
-        'App\\Controllers\\Home\\Page404' => __DIR__ . '/../..' . '/app/Controllers/Home/Page404.php',
+        'App\\Controllers\\Page404' => __DIR__ . '/../..' . '/app/Controllers/Page404.php',
         'App\\Model\\About' => __DIR__ . '/../..' . '/app/Model/About.php',
         'App\\Model\\AbstractModel' => __DIR__ . '/../..' . '/app/Model/AbstractModel.php',
         'App\\Model\\Admin' => __DIR__ . '/../..' . '/app/Model/Admin.php',
         'App\\Model\\Gallery' => __DIR__ . '/../..' . '/app/Model/Gallery.php',
         'App\\Model\\Index' => __DIR__ . '/../..' . '/app/Model/Index.php',
         'App\\Model\\Page404' => __DIR__ . '/../..' . '/app/Model/Page404.php',
+        'Common\\Database\\Connector' => __DIR__ . '/../..' . '/common/Database/Connector.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
         'Core\\View' => __DIR__ . '/../..' . '/core/View.php',

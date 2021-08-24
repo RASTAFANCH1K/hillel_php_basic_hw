@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Controllers\Home;
+namespace App\Controllers;
 
 use App\Controllers\AbstractController;
 use App\Model\Page404 as Page404Model;
 
 class Page404 extends AbstractController
 {
-  /** @var  string */
-  protected $className = 'Page404';
-
-  public function index() {
+  public function __construct() {
     $model = new Page404Model;
 
     $data = [
@@ -18,6 +15,6 @@ class Page404 extends AbstractController
       'paragraph' => $model->getParagraph(),
     ];
 
-    $this->generateView('home', 'page404', $data);
+    $this->generateView('', 'page404', $data);
   }
 }

@@ -6,25 +6,28 @@ use App\Model\AbstractModel;
 
 class Page404 extends AbstractModel
 {
-  /** @var  string */
-  protected $title = 'Page 404';
-
-  /** @var  string */
-  protected $paragraph = 'Sorry, required page does not exist';
+  /**
+   * @var string $table
+   */
+  protected $table = 'page404';
 
   /**
-   *  @return string
+   * @return string
    */
   public function getTitle():string
   {
-    return $this->title;
+    $title = $this->getFieldVal($this->table, 'title');
+
+    return $title;
   }
 
   /**
-   *  @return string
+   * @return string
    */
   public function getParagraph():string
   {
-    return $this->paragraph;
+    $paragraph = $this->getFieldVal($this->table, 'paragraph');
+
+    return $paragraph;
   }
 }

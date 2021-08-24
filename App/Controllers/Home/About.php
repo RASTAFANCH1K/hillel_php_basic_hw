@@ -7,10 +7,15 @@ use App\Model\About as AboutModel;
 
 class About extends AbstractController
 {
-  /** @var  string */
+  /**
+   * @var string $className
+   */
   protected $className = 'About';
 
-  public function index() {
+  /**
+   * @return void
+   */
+  public function index():void {
     $model = new AboutModel;
 
     $data = [
@@ -18,17 +23,23 @@ class About extends AbstractController
       'title' => $model->getTitle(),
       'paragraph' => $model->getParagraph(),
       'list' => $model->getList(),
-      'listItem' => $model->getListItem('special'),
+      'listItem' => $model->getListItem(0),
     ];
 
     $this->generateView('home', 'about', $data);
   }
 
-  public function hi() {
+  /**
+   * @return void
+   */
+  public function hi():void {
     echo $this->className . ' says "Hi"' . '<br>';
   }
 
-  public function bye() {
+  /**
+   * @return void
+   */
+  public function bye():void {
     echo $this->className . ' says "Bye"' . '<br>';
   }
 }

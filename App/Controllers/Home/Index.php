@@ -7,10 +7,15 @@ use App\Model\Index as IndexModel;
 
 class Index extends AbstractController
 {
-  /** @var  string */
+  /**
+   * @var string $className
+   */
   protected $className = 'Index';
 
-  public function index() {
+  /**
+   * @return void
+   */
+  public function index():void {
     $model = new IndexModel;
 
     $data = [
@@ -18,7 +23,7 @@ class Index extends AbstractController
       'title' => $model->getTitle(),
       'paragraph' => $model->getParagraph(),
       'list' => $model->getList(),
-      'listItem' => $model->getListItem('special'),
+      'listItem' => $model->getListItem(0),
     ];
 
     $this->generateView('home', 'index', $data);
