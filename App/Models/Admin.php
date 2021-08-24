@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
-use App\Model\AbstractModel;
+use App\Models\AbstractModel;
 
-class About extends AbstractModel
+class Admin extends AbstractModel
 {
   /**
    * @var string $table
    */
-  protected $table = 'about';
+  protected $table = 'admin';
 
   /**
    * @return int

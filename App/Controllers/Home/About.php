@@ -3,7 +3,7 @@
 namespace App\Controllers\Home;
 
 use App\Controllers\AbstractController;
-use App\Model\About as AboutModel;
+use App\Models\About as AboutModel;
 
 class About extends AbstractController
 {

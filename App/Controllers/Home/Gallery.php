@@ -3,7 +3,7 @@
 namespace App\Controllers\Home;
 
 use App\Controllers\AbstractController;
-use App\Model\Gallery as GalleryModel;
+use App\Models\Gallery as GalleryModel;
 
 class Gallery extends AbstractController
 {

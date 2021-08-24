@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
-use App\Model\AbstractModel;
+use App\Models\AbstractModel;
 
-class Gallery extends AbstractModel
+class Index extends AbstractModel
 {
   /**
    * @var string $table
    */
-  protected $table = 'gallery';
+  protected $table = 'home';
 
   /**
    * @return int
@@ -48,7 +48,7 @@ class Gallery extends AbstractModel
   {
     $JSON = $this->getFieldVal($this->table, 'list');
     $decodedJSON = json_decode($JSON, true);
-    $list = $decodedJSON['list'];
+    $list = $decodedJSON['pages'];
     
     return $list;
   }
@@ -65,3 +65,4 @@ class Gallery extends AbstractModel
     return $listItem;
   }
 }
+

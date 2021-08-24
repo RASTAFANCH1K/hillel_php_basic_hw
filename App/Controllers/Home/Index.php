@@ -3,7 +3,7 @@
 namespace App\Controllers\Home;
 
 use App\Controllers\AbstractController;
-use App\Model\Index as IndexModel;
+use App\Models\Index as IndexModel;
 
 class Index extends AbstractController
 {

@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\AbstractController;
-use App\Model\Admin as AdminModel;
+use App\Models\Admin as AdminModel;
 
 class Admin extends AbstractController
 {

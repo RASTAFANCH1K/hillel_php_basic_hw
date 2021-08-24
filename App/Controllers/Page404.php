@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\AbstractController;
-use App\Model\Page404 as Page404Model;
+use App\Models\Page404 as Page404Model;
 
 class Page404 extends AbstractController
 {
