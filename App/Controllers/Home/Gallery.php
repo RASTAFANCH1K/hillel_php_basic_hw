@@ -19,11 +19,7 @@ class Gallery extends AbstractController
     $model = new GalleryModel;
 
     $data = [
-      'id' =>  $model->getId(),
-      'title' => $model->getTitle(),
-      'paragraph' => $model->getParagraph(),
-      'list' => $model->getList(),
-      'listItem' => $model->getListItem(0),
+      'test' => $model->test(),
     ];
 
     $this->generateView('home', 'gallery', $data);

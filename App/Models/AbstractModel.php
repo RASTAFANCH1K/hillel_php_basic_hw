@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Common\Database\Connector;
+use Common\Database\Select;
 
 abstract class AbstractModel
 {
@@ -11,10 +12,14 @@ abstract class AbstractModel
    */
   private $dbConnect;
 
+  private $dbSelect;
+
+
   public function __construct()
   {
     $connector = new Connector();
     $this->dbConnect = $connector->connect();
+    $this->dbSelect = new Select();
   }
 
   /**
@@ -26,6 +31,24 @@ abstract class AbstractModel
     $sql = "SELECT * FROM $table";
     $query = $this->dbConnect->query($sql);
     $res = $query->fetchAll();
+  
+    return $res;
+  }
+
+  public function fetchSQLArr2()
+  {
+    $sql = "SELECT Gallery.id as gallery_id, post.id as post_id, Gallery.title as gallery_title, post.title as post_title FROM Gallery INNER JOIN post ON Gallery.id = post.gallery_id";
+    $query = $this->dbConnect->query($sql);
+    $res = $query->fetchAll(\PDO::FETCH_ASSOC);
+  
+    return $res;
+  }
+
+  public function fetchSQLArr3($queryArr)
+  {
+    $sql = $this->dbSelect->createQuery($queryArr);
+    $query = $this->dbConnect->query($sql);
+    $res = $query->fetchAll(\PDO::FETCH_ASSOC);
   
     return $res;
   }

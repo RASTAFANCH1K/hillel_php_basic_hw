@@ -6,62 +6,15 @@ use App\Models\AbstractModel;
 
 class Gallery extends AbstractModel
 {
-  /**
-   * @var string $table
-   */
-  protected $table = 'gallery';
+  protected $queryArr = [
+    'select' => 'gallery.id as gallery_id, gallery.title as gallery_title',
+    'table' => 'gallery',
+  ];
 
-  /**
-   * @return int
-   */
-  public function getId():int
+  public function test()
   {
-    $id = $this->getFieldVal($this->table, 'id');
+    return $this->fetchSQLArr3($this->queryArr);
+    // return $this->fetchSQLArr2();
 
-    return $id;
-  }
-
-  /**
-   * @return string
-   */
-  public function getTitle():string
-  {
-    $title = $this->getFieldVal($this->table, 'title');
-
-    return $title;
-  }
-
-  /**
-   * @return string
-   */
-  public function getParagraph():string
-  {
-    $paragraph = $this->getFieldVal($this->table, 'paragraph');
-
-    return $paragraph;
-  }
-
-  /**
-   * @return array
-   */
-  public function getList():array
-  {
-    $JSON = $this->getFieldVal($this->table, 'list');
-    $decodedJSON = json_decode($JSON, true);
-    $list = $decodedJSON['list'];
-    
-    return $list;
-  }
-
-  /**
-   * @param string $item
-   * @return string
-   */
-  public function getListItem(string $item):string
-  {
-    $list = $this->getList();
-    $listItem = $this->checkKeyExistence($item, $list);
-
-    return $listItem;
   }
 }

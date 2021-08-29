@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>
-      <?=$data['title'] ?>
+      <?=$data['title']?>
     </h1>
     <p>
       <strong>
