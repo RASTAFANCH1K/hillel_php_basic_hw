@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 24 2021 г., 20:02
+-- Время создания: Авг 29 2021 г., 23:22
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.1.33
 
@@ -79,7 +79,8 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `title`, `paragraph`, `list`) VALUES
-(1, 'Gallery', 'There are lot\'s of various photos', '{\"list\": [\"gallery first\", \"gallery second\", \"gallery third\"]}');
+(1, 'Gallery', 'There are lot\'s of various photos', '{\"list\": [\"gallery first\", \"gallery second\", \"gallery third\"]}'),
+(2, 'Gallery 2', 'There are a lot of smt', '{\"list\": [\"gallery first 2\", \"gallery second 2\", \"gallery third 2\"]}');
 
 -- --------------------------------------------------------
 
@@ -120,6 +121,29 @@ CREATE TABLE `page404` (
 INSERT INTO `page404` (`id`, `title`, `paragraph`) VALUES
 (1, 'Page 404', 'Sorry, required page does not exist');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `post`
+--
+
+CREATE TABLE `post` (
+  `id` int NOT NULL,
+  `gallery_id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `post` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Дамп данных таблицы `post`
+--
+
+INSERT INTO `post` (`id`, `gallery_id`, `title`, `post`) VALUES
+(1, 1, 'test', 'post test'),
+(2, 1, 'test 2', 'post test 2'),
+(3, 1, 'test 3', 'post test 3'),
+(4, 2, 'test 4', 'post test 4');
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -155,6 +179,12 @@ ALTER TABLE `page404`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -174,7 +204,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT для таблицы `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `home`
@@ -187,6 +217,12 @@ ALTER TABLE `home`
 --
 ALTER TABLE `page404`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `post`
+--
+ALTER TABLE `post`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
