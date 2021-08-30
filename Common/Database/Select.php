@@ -20,11 +20,7 @@ class Select {
   
         $this->{$key} = $stringifiedArr;
       } else if (is_string($val)) {
-        if (array_key_exists($key, $queryArr)) {
-          if (isset($key)) {
-            $this->{$key} = $val;
-          }
-        }
+        $this->{$key} = $val;
       }
     }
 
