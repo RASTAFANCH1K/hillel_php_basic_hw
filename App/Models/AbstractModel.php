@@ -35,16 +35,11 @@ abstract class AbstractModel
     return $res;
   }
 
-  public function fetchSQLArr2()
-  {
-    $sql = "SELECT Gallery.id as gallery_id, post.id as post_id, Gallery.title as gallery_title, post.title as post_title FROM Gallery INNER JOIN post ON Gallery.id = post.gallery_id";
-    $query = $this->dbConnect->query($sql);
-    $res = $query->fetchAll(\PDO::FETCH_ASSOC);
-  
-    return $res;
-  }
-
-  public function fetchSQLArr3($queryArr)
+  /**
+   *  @param string $queryArr
+   *  @return array
+   */
+  public function fetchSQLArrSandbox($queryArr)
   {
     $sql = $this->dbSelect->createQuery($queryArr);
     $query = $this->dbConnect->query($sql);

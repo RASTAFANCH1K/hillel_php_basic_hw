@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 29 2021 г., 23:22
+-- Время создания: Авг 31 2021 г., 00:06
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.1.33
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `hw_8`
+-- База данных: `hw_9`
 --
 
 -- --------------------------------------------------------
@@ -129,20 +129,44 @@ INSERT INTO `page404` (`id`, `title`, `paragraph`) VALUES
 
 CREATE TABLE `post` (
   `id` int NOT NULL,
-  `gallery_id` int NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `post` text NOT NULL
+  `select_sandbox_id` int NOT NULL,
+  `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Дамп данных таблицы `post`
 --
 
-INSERT INTO `post` (`id`, `gallery_id`, `title`, `post`) VALUES
-(1, 1, 'test', 'post test'),
-(2, 1, 'test 2', 'post test 2'),
-(3, 1, 'test 3', 'post test 3'),
-(4, 2, 'test 4', 'post test 4');
+INSERT INTO `post` (`id`, `select_sandbox_id`, `title`) VALUES
+(1, 1, 'Post 1'),
+(2, 1, 'Post 2'),
+(3, 2, 'Post 3'),
+(4, 2, 'Post 4'),
+(5, 3, 'Post 5'),
+(6, 3, 'Post 6'),
+(7, 4, 'Post 7'),
+(8, 4, 'Post 8');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `select_sandbox`
+--
+
+CREATE TABLE `select_sandbox` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Дамп данных таблицы `select_sandbox`
+--
+
+INSERT INTO `select_sandbox` (`id`, `title`) VALUES
+(1, 'Selection 1'),
+(2, 'Selection 2'),
+(3, 'Selection 3'),
+(4, 'Selection 4');
 
 --
 -- Индексы сохранённых таблиц
@@ -185,6 +209,12 @@ ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `select_sandbox`
+--
+ALTER TABLE `select_sandbox`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -222,7 +252,13 @@ ALTER TABLE `page404`
 -- AUTO_INCREMENT для таблицы `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT для таблицы `select_sandbox`
+--
+ALTER TABLE `select_sandbox`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

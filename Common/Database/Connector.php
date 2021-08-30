@@ -35,7 +35,11 @@ class Connector
 
   public function connect()
   {
-    $connection = new \PDO($this->dns, $this->user, $this->password);
+    $options = [
+      \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+    ];
+
+    $connection = new \PDO($this->dns, $this->user, $this->password, $options);
 
     return $connection;
   }

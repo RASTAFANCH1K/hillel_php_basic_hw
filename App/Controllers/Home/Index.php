@@ -8,11 +8,6 @@ use App\Models\Index as IndexModel;
 class Index extends AbstractController
 {
   /**
-   * @var string $className
-   */
-  protected $className = 'Index';
-
-  /**
    * @return void
    */
   public function index():void {
