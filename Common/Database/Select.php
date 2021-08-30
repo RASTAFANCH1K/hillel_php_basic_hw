@@ -4,7 +4,7 @@ namespace Common\Database;
 
 class Select {
   protected $select = '*'; //! Default value
-  protected $from;
+  protected $from; //! Has to be set from model
   protected $joinType;
   protected $joinTable;
   protected $on;
