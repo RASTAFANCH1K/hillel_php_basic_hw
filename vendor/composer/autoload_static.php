@@ -55,6 +55,7 @@ class ComposerStaticInit47a05088ba19b2d17c930d36f7582737
         'App\\Models\\SelectSandbox' => __DIR__ . '/../..' . '/app/Models/SelectSandbox.php',
         'Common\\Database\\Connector' => __DIR__ . '/../..' . '/common/Database/Connector.php',
         'Common\\Database\\Select' => __DIR__ . '/../..' . '/common/Database/Select.php',
+        'Common\\Database\\Where' => __DIR__ . '/../..' . '/common/Database/Where.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
         'Core\\View' => __DIR__ . '/../..' . '/core/View.php',

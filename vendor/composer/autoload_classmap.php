@@ -22,6 +22,7 @@ return array(
     'App\\Models\\SelectSandbox' => $baseDir . '/app/Models/SelectSandbox.php',
     'Common\\Database\\Connector' => $baseDir . '/common/Database/Connector.php',
     'Common\\Database\\Select' => $baseDir . '/common/Database/Select.php',
+    'Common\\Database\\Where' => $baseDir . '/common/Database/Where.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Core\\Router' => $baseDir . '/core/Router.php',
     'Core\\View' => $baseDir . '/core/View.php',

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Common\Database\Connector;
 use Common\Database\Select;
+use Common\Database\Where;
 
 abstract class AbstractModel
 {
@@ -12,14 +13,18 @@ abstract class AbstractModel
    */
   private $dbConnect;
 
-  private $dbSelect;
+  protected $dbSelect;
+
+  protected $dbWhere;
 
 
   public function __construct()
   {
+
     $connector = new Connector();
     $this->dbConnect = $connector->connect();
     $this->dbSelect = new Select();
+    $this->dbWhere = new Where();
   }
 
   /**
@@ -35,13 +40,10 @@ abstract class AbstractModel
     return $res;
   }
 
-  /**
-   *  @param string $queryArr
-   *  @return array
-   */
-  public function fetchSQLArrSandbox($queryArr)
+  public function fetchSQLArrSandbox()
   {
-    $sql = $this->dbSelect->createQuery($queryArr);
+    $where = $this->dbWhere;
+    $sql = $this->dbSelect->getSQL($where);
     $query = $this->dbConnect->query($sql);
     $res = $query->fetchAll(\PDO::FETCH_ASSOC);
   
