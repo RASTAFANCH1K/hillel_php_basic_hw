@@ -2,7 +2,8 @@
 
 namespace Common\Database;
 
-class Select {
+class Select extends Where
+{
   protected $selection = '*';
   protected $table;
   protected $join;
@@ -19,7 +20,7 @@ class Select {
 
       foreach ($this->selection as $key => $val) {
         if (!empty($str)) {
-          $str .= ',';
+          $str .= ', ';
         }
 
         if (is_int($key)) {
@@ -111,7 +112,7 @@ class Select {
     $this->limit = $limit;
   }
 
-  public function getSQL($where = NULL)
+  public function getSQL():string
   {
     $selectPart = "SELECT $this->selection FROM $this->table";
 
@@ -121,8 +122,8 @@ class Select {
       $joinPart = '';
     }
 
-    if ($where->cond) {
-      $conditionPart = "WHERE $where->cond";
+    if ($this->cond) {
+      $conditionPart = "WHERE $this->cond";
     } else {
       $conditionPart = '';
     }

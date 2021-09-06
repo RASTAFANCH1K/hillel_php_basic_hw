@@ -29,14 +29,14 @@ class SelectSandbox extends AbstractModel
     ]);
     // $this->dbSelect->setJoin('INNER JOIN post ON select_sandbox.id = post.select_sandbox_id');
     
-    // $this->dbWhere->setCond('select_sandbox.id = 2');
-    // $this->dbWhere->setCond('select_sandbox.id = 2 OR select_sandbox.id = 3');
-    // $this->dbWhere->setCond([
+    // $this->dbSelect->setCond('select_sandbox.id = 2');
+    // $this->dbSelect->setCond('select_sandbox.id = 2 OR select_sandbox.id = 3');
+    // $this->dbSelect->setCond([
     //   'leftCond' => 'select_sandbox.id',
     //   'operator' => '=',
     //   'rightCond' => 2,
     // ]);
-    $this->dbWhere->setCond([
+    $this->dbSelect->setCond([
       'OR',
       [
         'leftCond' => 'select_sandbox.id',
@@ -57,7 +57,7 @@ class SelectSandbox extends AbstractModel
     $this->dbSelect->setOrderBy('select_sandbox.id', 'ASC');
     // $this->dbSelect->setOrderBy('select_sandbox.id ASC');
     
-    $res = $this->fetchSQLArrSandbox();
+    $res = $this->SelectSandbox();
 
     return $res;
   }

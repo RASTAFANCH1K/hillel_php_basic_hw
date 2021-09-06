@@ -2,12 +2,9 @@
 
 namespace Common\Database;
 
-use Common\Database\Select;
-
-class Where extends Select 
+class Where
 {
   protected $cond;
-
 
   public function setCond($cond = NULL)
   {
@@ -19,11 +16,11 @@ class Where extends Select
       $this->cond;
     } elseif (is_array($args[0])) {
       $baseArr = $args[0];
-      $isStringKey;
+      $isStringKey = NULL;
 
       $arrKeys = array_keys($baseArr);
 
-      foreach ($arrKeys as $arrKey => $arrVal) {
+      foreach ($arrKeys as $arrVal) {
         if (is_string($arrVal)) {
           $isStringKey = true;
         } else {
@@ -40,12 +37,12 @@ class Where extends Select
   
         $this->cond = $res;
       } else {
-        $clause;
+        $clause = '';
         $secArr = [];
         $str = '';
         $res = '';
   
-        foreach ($baseArr as $key => $val) {
+        foreach ($baseArr as $val) {
           if (is_string($val)) {
             $clause .= $val;
           } elseif (is_array($val)) {
@@ -55,7 +52,7 @@ class Where extends Select
   
         array_splice($secArr[0], 3, 0, $clause);
   
-        foreach ($secArr as $key => $innerArr) {
+        foreach ($secArr as $innerArr) {
           if (is_array($innerArr)) {
             $str .= implode(' ', $innerArr);
           }

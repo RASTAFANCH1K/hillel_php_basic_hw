@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 31 2021 г., 00:06
+-- Время создания: Сен 07 2021 г., 00:41
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.1.33
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `hw_9`
+-- База данных: `hw_10`
 --
 
 -- --------------------------------------------------------
@@ -101,6 +101,18 @@ CREATE TABLE `home` (
 
 INSERT INTO `home` (`id`, `title`, `paragraph`, `list`) VALUES
 (1, 'Index', 'List of available pages', '{\"pages\": [\"about\", \"about/hi\", \"about/bye\", \"gallery\", \"gallery/hi\", \"gallery/bye\", \"admin\", \"admin/hi\", \"admin/bye\"]}');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `insert_sandbox`
+--
+
+CREATE TABLE `insert_sandbox` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `descriptions` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -197,6 +209,12 @@ ALTER TABLE `home`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `insert_sandbox`
+--
+ALTER TABLE `insert_sandbox`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `page404`
 --
 ALTER TABLE `page404`
@@ -241,6 +259,12 @@ ALTER TABLE `gallery`
 --
 ALTER TABLE `home`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `insert_sandbox`
+--
+ALTER TABLE `insert_sandbox`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `page404`

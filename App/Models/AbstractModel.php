@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Common\Database\Connector;
 use Common\Database\Select;
-use Common\Database\Where;
+use Common\Database\Insert;
+use Common\Database\Delete;
+use Common\Database\Update;
 
 abstract class AbstractModel
 {
@@ -15,8 +17,11 @@ abstract class AbstractModel
 
   protected $dbSelect;
 
-  protected $dbWhere;
+  protected $dbInsert;
 
+  protected $dbDelete;
+
+  protected $dbUpdate;
 
   public function __construct()
   {
@@ -24,7 +29,9 @@ abstract class AbstractModel
     $connector = new Connector();
     $this->dbConnect = $connector->connect();
     $this->dbSelect = new Select();
-    $this->dbWhere = new Where();
+    $this->dbInsert = new Insert();
+    $this->dbDelete = new Delete();
+    $this->dbUpdate = new Update();
   }
 
   /**
@@ -40,14 +47,40 @@ abstract class AbstractModel
     return $res;
   }
 
-  public function fetchSQLArrSandbox()
+  public function SelectSandbox()
   {
-    $where = $this->dbWhere;
-    $sql = $this->dbSelect->getSQL($where);
+    $sql = $this->dbSelect->getSQL();
     $query = $this->dbConnect->query($sql);
     $res = $query->fetchAll(\PDO::FETCH_ASSOC);
   
     return $res;
+  }
+
+  public function InsertSandbox()
+  {
+    $sql = $this->dbInsert->generateInsertString();
+    print_r($sql);
+    $query = $this->dbConnect->exec($sql);
+  
+    return $query;
+  }
+
+  public function DeleteSandbox()
+  {
+    $sql = $this->dbDelete->generateDeleteString();
+    print_r($sql);
+    $query = $this->dbConnect->exec($sql);
+  
+    return $query;
+  }
+
+  public function UpdateSandbox()
+  {
+    $sql = $this->dbUpdate->generateUpdateString();
+    print_r($sql);
+    $query = $this->dbConnect->exec($sql);
+  
+    return $query;
   }
 
   /**
