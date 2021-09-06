@@ -2,7 +2,7 @@
 
 namespace Common\Database;
 
-class Where
+class Where extends SQLClass
 {
   protected $cond;
 

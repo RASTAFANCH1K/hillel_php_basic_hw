@@ -2,9 +2,8 @@
 
 namespace Common\Database;
 
-class Insert 
+class Insert extends Where
 {
-  private $tableName;
   private $data = [];
 
   public function generateInsertString():string
@@ -17,14 +16,6 @@ class Insert
     }
 
     return 'INSERT INTO ' . $this->tableName . ' (' .  implode(', ', array_keys($this->data)) . ')' . ' VALUES' . ' (' . implode(', ', array_values($newKeys)) . ')'; 
-  }
-
-  /**
-   * @param mixed $tableName
-   */
-  public function setTableName(string $tableName):void
-  {
-    $this->tableName = $tableName;
   }
 
   /**

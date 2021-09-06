@@ -4,7 +4,6 @@ namespace Common\Database;
 
 class Update extends Where
 {
-  private $tableName;
   private $data;
 
   public function generateUpdateString()
@@ -25,10 +24,5 @@ class Update extends Where
     }
 
     $this->data = $result;
-  }
-
-  public function setTableName($tableName):void
-  {
-    $this->tableName = $tableName;
   }
 }
